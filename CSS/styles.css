@@ -1,0 +1,309 @@
+/* Réinitialisation générale */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../GUI/img/background1.jpg');
+    background-size: cover;
+    font-family: "Roboto", sans-serif;
+    background-color: #C6E7DB;
+    color: #3EB489;
+}
+
+/*les liens */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*la barre de navigation */
+.navbar {
+    width: 100%;
+    height: 50px;
+    background-color: #333333;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 75px;
+    height: 100%;
+}
+
+
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 30px;
+    color: #44ffba;
+}
+
+.menu-list {
+    display: flex;
+    list-style: none;
+}
+
+.menu-list-item {
+    margin-right: 30px;
+    cursor: pointer;
+    position: relative;
+    padding: 5px 0;
+    color: #C6E7DB;
+    transition: color 0.3s;
+}
+
+/* État actif et au survol pour les éléments de menu */
+.menu-list-item.active, 
+.menu-list-item:hover {
+    color: #44ffba;
+}
+
+/* Styles du sous-menu */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    background-color: #444;
+    list-style: none;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.submenu li {
+    margin-bottom: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Afficher le sous-menu au survol */
+.menu-list-item:hover .submenu {
+    display: block;
+}
+
+/* Styles de la barre latérale */
+.sidebar {
+    width: 50px;
+    height: calc(100vh - 50px);
+    background-color: #333333;
+    position: fixed;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    z-index: 100;
+    transition: width 0.3s;
+}
+
+/* Barre latérale étendue */
+.sidebar.expanded {
+    width: 200px;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sidebar-item:not(:first-child) {
+    margin-top: 40px;
+}
+
+/* Couleur de fond au survol des éléments de la barre latérale */
+.sidebar-item:hover {
+    background-color: #444;
+}
+
+/* Icônes de la barre latérale */
+.left-menu-icon {
+    color: #C6E7DB;
+    font-size: 20px;
+    margin-right: 20px;
+    transition: box-shadow 0.3s;
+}
+
+/* Ombre au survol des icônes */
+.left-menu-icon:hover {
+    box-shadow: 0 0 10px #44ffba;
+}
+
+/* Texte de la barre latérale */
+.sidebar-text {
+    opacity: 0;
+    color: #C6E7DB;
+    font-size: 16px;
+    font-weight: bold;
+    transition: opacity 0.3s;
+}
+
+/* Texte visible dans la barre latérale étendue */
+.sidebar.expanded .sidebar-text {
+    opacity: 1;
+}
+
+/* Styles du contenu principal */
+.container {
+    margin-left: 50px;
+    padding: 20px;
+}
+
+.content-container {
+    padding: 20px;
+}
+
+/* Contenu en vedette */
+.featured-content {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-color: #555;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border: solid 7px;
+}
+
+.featured-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Masquer les diapositives autres que la première */
+.featured-slide:not(:first-child) {
+    opacity: 0;
+}
+
+/* Conteneur de points pour la navigation des diapositives */
+.dots-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+/* Points de navigation */
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Point actif */
+.dot.active {
+    background-color: #3EB489;
+}
+
+/* Styles de la liste des événements */
+.events-list-container {
+    background-color: rgba(198, 231, 219, 0.9);
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.event-list-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.event-list-container {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.event-list-container .match input,
+.event-list-container .match button {
+    padding: 14px;
+    border-radius: 10px;
+}
+
+.event-list-container .match button {
+    background-color: #3EB489;
+    color: #C6E7DB;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Liste des événements */
+.event-list {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 20px;
+}
+
+.event-list-item {
+    background-color: #C6E7DB;
+    color: black;
+    border-radius: 10px;
+    margin-right: 20px;
+    padding: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(155, 101, 101, 0.1);
+}
+
+.event-list-item-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.event-list-item-desc {
+    font-size: 0.875rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+@media(max-width: 850px) {
+    .navbar {
+        width: 100%;
+        height: 100px;
+        font-size: 12px;
+        background-color: #333333;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    .logo {
+        font-size: 15px;
+        color: #44ffba;
+    }
+}

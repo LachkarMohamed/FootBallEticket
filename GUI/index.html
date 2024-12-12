@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../CSS/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../JS/script.js" defer></script>
+    <title>FootBall Eticket</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-container">
+        <div class="logo-container">
+          <h1 class="logo">FootBall Eticket</h1>
+        </div>
+        <div class="menu-container">
+          <ul class="menu-list">
+            <li class="menu-list-item"><a href="#">ACCUEIL</a></li>
+            <li class="menu-list-item">
+              A VENIR
+              <ul class="submenu">
+                <li>maroc vs brazil</li>
+              </ul>
+            </li>
+            <li class="menu-list-item">
+              POPULAIRE
+              <ul class="submenu">
+                <li>maroc vs brazil</li>
+              </ul>
+            </li>
+            <li class="menu-list-item" id="login-logout">
+              <a href="../PHP/login.php">LOGIN</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar">
+      <div class="sidebar-item">
+        <i class="left-menu-icon fas fa-home"></i>
+        <span class="sidebar-text">Accueil</span>
+      </div>
+      <div class="sidebar-item">
+        <i class="left-menu-icon fas fa-shopping-cart"></i>
+        <span class="sidebar-text">Panier</span>
+      </div>
+      <div class="sidebar-item">
+        <i class="left-menu-icon fas fa-history"></i>
+        <span class="sidebar-text">Historique</span>
+      </div>
+    </div>
+    <div class="container">
+      <div class="content-container">
+        <div class="featured-content">
+          <div
+            class="featured-slide"
+            style="background-image: url('img/1.png')"
+          ></div>
+          <div
+            class="featured-slide"
+            style="background-image: url('img/2.png')"
+          ></div>
+          <div
+            class="featured-slide"
+            style="background-image: url('img/3.png')"
+          ></div>
+          <div class="dots-container">
+            <span class="dot" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+          </div>
+        </div>
+        <div class="events-list-container">
+          <h1 class="event-list-title">Evénements A venir</h1>
+          <div class="event-list-container" id="matches-container"></div>
+          <div id="reservation-history-container"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Reservation form template (hidden by default) -->
+    <div id="reservation-form-template" style="display: none">
+      <form class="reservation-form">
+        <input type="hidden" name="match_id" value="" />
+        <input type="number" name="quantity" placeholder="Quantity" />
+        <button type="submit">Réserver</button>
+      </form>
+    </div>
+  </body>
+</html>
